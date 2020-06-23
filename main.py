@@ -30,7 +30,7 @@ def t_newline(t):
   t.lexer.lineno += len( t.value )
 
 def t_error(t):
-  print("Invalid Token:",t.value[0])
+  print('Invalid Token:',t.value[0])
   t.lexer.skip(1)
 
 lexer = lex.lex()
@@ -61,7 +61,7 @@ def p_mult_div(p) :
     p[0] = p[1] * p[3]
   else :
     if p[3] == 0 :
-      print("Can't divide by 0")
+      print('Cant divide by 0')
 
 def p_expr2NUM(p) :
   'expr : NUMBER'
@@ -73,9 +73,9 @@ def p_parens(p) :
 
 def p_error(p):
   if p == None:
-    print("Syntax error in input!")
+    print('Syntax error in input!')
   else:
-    print("Syntax error at '%s'" % p.value)
+    print('Syntax error at {%s}' % p.value)
 
 parser = yacc.yacc()
 
